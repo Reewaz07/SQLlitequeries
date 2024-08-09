@@ -1,0 +1,29 @@
+CREATE TABLE Publisher(
+ID INTEGER   PRIMARY KEY  AUTOINCREMENT      NOT NULL,
+NAME      TEXT             NOT NULL,
+ADDRESS    TEXT       NOT NULL,
+PHONE VARCHAR(100),
+ESTABLISHED DATETIME
+);
+
+CREATE TABLE Author(
+ID INTEGER   PRIMARY KEY  AUTOINCREMENT      NOT NULL,
+NAME       TEXT             NOT NULL,
+ADDRESS    TEXT       NOT NULL,
+Email      TEXT,
+Education  TEXT
+);
+
+
+CREATE TABLE Book(
+ID INTEGER   PRIMARY KEY  AUTOINCREMENT      NOT NULL,
+Title       TEXT             NOT NULL,
+Price       REAL             NOT NULL,
+ISBN     VARCHAR(20)         NOT NULL,
+Genre  TEXT,
+Published Date DATETIME,
+AuthorID   Int,
+PublisherID  INT,
+FOREIGN KEY(AuthorID) REFERENCES Author(Id),
+FOREIGN KEY(PublisherID) REFERENCES Publisher(Id)
+);
